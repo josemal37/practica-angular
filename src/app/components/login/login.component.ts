@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { LoginUser } from '../../shared/model/login_user';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'pran-login',
@@ -8,23 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  loginButtonText: string = 'Login';
-  passwordText: string = 'Password';
-  title: string = 'Login';
-  usernameText: string = 'Username';
+  private loginButtonText: string = 'Login';
+  private passwordText: string = 'Password';
+  private title: string = 'Login';
+  private usernameText: string = 'Username';
 
-  loginUser: LoginUser = {
+  private loginUser: LoginUser = {
     username: '',
     password: ''
   };
 
-  constructor() { }
+  constructor(private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(): void {
-    console.log(this.loginUser);
+  private onSubmit(): void {
+    if (this.usersService.validateUser(this.loginUser)) {
+      this.router.navigate(['dashboard']);
+    } else {
+      this.loginError();
+    }
+  }
+
+  private loginError() {
+    alert("Usuario no valido!");
   }
 
 }

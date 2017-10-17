@@ -6,6 +6,7 @@ import { LoginUser } from '../../shared/model/login_user';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersService } from '../../shared/services/users.service';
+import { CustomDialogComponent } from '../../components/custom-dialog/custom-dialog.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,13 @@ import { UsersService } from '../../shared/services/users.service';
     FormsModule,
     MaterialModule
   ],
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+    CustomDialogComponent
+  ],
+  entryComponents: [
+    CustomDialogComponent
+  ],
   providers: [UsersService]
 })
 export class LoginModule { }

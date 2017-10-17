@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { LoginUser } from '../../shared/model/login_user';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../shared/services/users.service';
+import { MatDialog } from '@angular/material';
+import { CustomDialogComponent } from '../custom-dialog/custom-dialog.component';
 
 @Component({
   selector: 'pran-login',
@@ -10,22 +12,25 @@ import { UsersService } from '../../shared/services/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  private loginButtonText: string = 'Login';
-  private passwordText: string = 'Password';
-  private title: string = 'Login';
-  private usernameText: string = 'Username';
+  loginButtonText: string = 'Login';
+  passwordText: string = 'Password';
+  title: string = 'Login';
+  usernameText: string = 'Username';
+  loginErrorTitle: string = 'Login error';
+  loginErrorText: string = 'Incorrect username or password.';
+  loginErrorButtonText: string = 'Close';
 
-  private loginUser: LoginUser = {
+  loginUser: LoginUser = {
     username: '',
     password: ''
   };
 
-  constructor(private router: Router, private usersService: UsersService) { }
+  constructor(private router: Router, private usersService: UsersService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     if (this.usersService.validateUser(this.loginUser)) {
       this.router.navigate(['dashboard']);
     } else {
@@ -33,8 +38,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private loginError() {
-    alert("Usuario no valido!");
+  loginError() {
+    this.dialog.open(
+      CustomDialogComponent,
+      {
+        data: {
+          buttonText: this.loginErrorButtonText,
+          description: this.loginErrorText,
+          title: this.loginErrorTitle
+        }
+      }
+    );
   }
 
 }

@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import {
   MATERIAL_COMPATIBILITY_MODE,
   MatButtonModule,
-  MatInputModule,
   MatCardModule,
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatInputModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -13,14 +15,16 @@ import {
   imports: [
     CommonModule,
     MatButtonModule,
-    MatInputModule,
     MatCardModule,
+    MatDialogModule,
+    MatInputModule,
     MatToolbarModule
   ],
   exports: [
     MatButtonModule,
-    MatInputModule,
     MatCardModule,
+    MatDialogModule,
+    MatInputModule,
     MatToolbarModule
   ],
   declarations: []

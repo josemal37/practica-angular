@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../shared/model/user';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'pran-dashboard',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+    this.usersService.getUsers().subscribe((data) => {
+      this.users = data.results;
+      console.log(this.users);
+    });
   }
 
 }

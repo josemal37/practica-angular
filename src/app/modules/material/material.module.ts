@@ -7,6 +7,7 @@ import {
   MatCardModule,
   MAT_DIALOG_DATA,
   MatDialogModule,
+  MatGridListModule,
   MatInputModule,
   MatToolbarModule
 } from '@angular/material';
@@ -17,6 +18,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
+    MatGridListModule,
     MatInputModule,
     MatToolbarModule
   ],
@@ -24,6 +26,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
+    MatGridListModule,
     MatInputModule,
     MatToolbarModule
   ],

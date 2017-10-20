@@ -8,7 +8,9 @@ import {
   MAT_DIALOG_DATA,
   MatDialogModule,
   MatGridListModule,
+  MatIconModule,
   MatInputModule,
+  MatListModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -19,7 +21,9 @@ import {
     MatCardModule,
     MatDialogModule,
     MatGridListModule,
+    MatIconModule,
     MatInputModule,
+    MatListModule,
     MatToolbarModule
   ],
   exports: [
@@ -27,7 +31,9 @@ import {
     MatCardModule,
     MatDialogModule,
     MatGridListModule,
+    MatIconModule,
     MatInputModule,
+    MatListModule,
     MatToolbarModule
   ],
   declarations: []

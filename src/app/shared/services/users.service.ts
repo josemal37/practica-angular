@@ -22,7 +22,7 @@ export class UsersService {
     return valid;
   }
 
-  getUsers(results: number = 10): Observable<any> {
+  getUsers(results: number = 12): Observable<any> {
     return this.httpClient.get(`${this.usersApiUrl}?results=${results}`);
   }
 

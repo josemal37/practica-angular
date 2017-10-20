@@ -1,3 +1,10 @@
-.full-width {
-    width: 100%;
+.custom-card {
+    margin-bottom: 20px;
+}
+.custom-card-name {
+    height: 100px;
+}
+.custom-card-direction {
+    height: 50px;
+    text-overflow: ellipsis;
 }
